@@ -1353,7 +1353,7 @@ export default function TemplatePreview({ template }) {
         <button type="button" aria-label="Close controls" className={`preview-mobile-scrim ${mobilePanelOpen ? "open" : ""}`} onClick={() => setMobilePanelOpen(false)} />
         <div className={`preview-topbar ${mobilePanelOpen ? "mobile-open" : ""}`}>
           <Link href="/" className="preview-sidebar-logo" aria-label="Web Launchy Fire home">
-            <img src="/logo2.svg" alt="" className="preview-sidebar-logo-img" />
+            <img src="/logo3.svg" alt="" className="preview-sidebar-logo-img" />
             <span className="preview-sidebar-logo-text">
               <span className="preview-sidebar-logo-top">Web</span>
               <span className="preview-sidebar-logo-name">Launchy<span className="preview-sidebar-logo-fire">Fire</span></span>

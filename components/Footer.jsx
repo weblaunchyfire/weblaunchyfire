@@ -63,7 +63,7 @@ export default function Footer() {
             {/* Brand */}
             <div>
               <div className="ft-brand">
-                <img src="/logo2.svg" alt="" className="ft-brand-img" />
+                <img src="/logo3.svg" alt="" className="ft-brand-img" />
                 <span className="ft-brand-text">
                   <span className="ft-brand-top">Web</span>
                   <span className="ft-brand-name">Launchy<span className="ft-brand-fire">Fire</span></span>

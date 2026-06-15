@@ -35,7 +35,7 @@ export default function Header() {
 
   const LogoContent = () => (
     <>
-      <img src="/logo2.svg" alt="" className="hdr-logo-img" />
+      <img src="/logo3.svg" alt="" className="hdr-logo-img" />
       <span className="hdr-logo-text">
         <span className="hdr-logo-top">Web</span>
         <span className="hdr-logo-name">Launchy<span className="hdr-logo-fire">Fire</span></span>
