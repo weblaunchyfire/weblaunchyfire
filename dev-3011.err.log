@@ -1,0 +1,18 @@
+ ⨯ ./components/Header.jsx
+Error:   [31mx[0m Expected '</', got '{'
+    ,-[[36;1;4mD:\WEB STUDIO\weblaunchyfire\components\Header.jsx[0m:88:1]
+ [2m85[0m |   return (
+ [2m86[0m |     <>
+ [2m87[0m |       <style>{`
+ [2m88[0m |         .hdr {
+    : [35;1m             ^[0m
+ [2m89[0m |           position: sticky; top: 0; z-index: 50;
+ [2m90[0m |           background: rgba(255,255,255,.9);
+ [2m91[0m |           backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/Header.jsx

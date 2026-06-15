@@ -1,0 +1,55 @@
+
+> weblaunchyfire@0.1.0 dev
+> next dev -p 3011
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3011
+   - Network:      http://10.228.104.77:3011
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.8s
+ ○ Compiling / ...
+ ✓ Compiled / in 9.8s (680 modules)
+ HEAD / 200 in 11211ms
+ ✓ Compiled in 688ms (249 modules)
+ ✓ Compiled in 678ms (249 modules)
+ ✓ Compiled in 341ms (249 modules)
+ ✓ Compiled in 314ms (249 modules)
+ ✓ Compiled in 297ms (249 modules)
+ ✓ Compiled in 373ms (249 modules)
+ ✓ Compiled in 268ms (249 modules)
+ ✓ Compiled in 554ms (249 modules)
+ ✓ Compiled in 1492ms (249 modules)
+ ✓ Compiled in 472ms (249 modules)
+ ✓ Compiled in 858ms (265 modules)
+ ✓ Compiled in 407ms (265 modules)
+ ✓ Compiled in 444ms (265 modules)
+ ✓ Compiled in 448ms (265 modules)
+ ✓ Compiled in 366ms (265 modules)
+ ✓ Compiled in 450ms (248 modules)
+ ✓ Compiled in 244ms (248 modules)
+ ✓ Compiled in 601ms (248 modules)
+ ✓ Compiled in 559ms (248 modules)
+ ✓ Compiled in 736ms (248 modules)
+ ✓ Compiled in 437ms (248 modules)
+ ✓ Compiled in 693ms (248 modules)
+ ✓ Compiled in 579ms (248 modules)
+ ✓ Compiled in 526ms (248 modules)
+ ✓ Compiled in 512ms (248 modules)
+ ✓ Compiled in 387ms (248 modules)
+ ✓ Compiled in 371ms (248 modules)
+ ✓ Compiled in 326ms (248 modules)
+ ✓ Compiled in 359ms (248 modules)
+ ✓ Compiled in 535ms (248 modules)
+ ✓ Compiled in 399ms (248 modules)
+ ✓ Compiled in 416ms (248 modules)
+ ✓ Compiled in 634ms (248 modules)
+ ✓ Compiled in 416ms (248 modules)
+ ✓ Compiled in 409ms (248 modules)
+ ✓ Compiled in 469ms (248 modules)
+ ✓ Compiled in 404ms (248 modules)
+ ✓ Compiled in 881ms (248 modules)
+ ✓ Compiled in 415ms (248 modules)
+ ✓ Compiled in 162ms (234 modules)
+ ✓ Compiled in 514ms (234 modules)
