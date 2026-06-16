@@ -37,7 +37,14 @@ export const metadata = makeSeoMetadata({
 });
 
 export default function Home() {
-  const featured = templates.slice(0, 3);
+  const featuredIds = [
+    "gym-fitness-gym-classic",
+    "restaurant-restaurant-classic",
+    "retail-shop-retail-shop-classic",
+  ];
+  const featured = featuredIds
+    .map(id => templates.find(template => template.id === id))
+    .filter(Boolean);
 
   return (
     <>
@@ -319,39 +326,175 @@ export default function Home() {
         .step-desc { font-size:.875rem; line-height:1.7; color:var(--text-2); }
 
         /* ── pricing ── */
+        .pricing-note {
+          max-width:840px;
+          margin:22px auto 0;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:10px;
+          padding:13px 16px;
+          border-radius:14px;
+          background:rgba(255,255,255,.72);
+          border:1px solid rgba(21,21,21,.08);
+          color:var(--text-2);
+          font-size:.88rem;
+          line-height:1.55;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.78), 0 12px 34px rgba(21,21,21,.05);
+        }
+        .pricing-note svg {
+          width:18px;
+          height:18px;
+          color:var(--accent);
+          flex:0 0 auto;
+        }
+        .pricing-grid {
+          max-width:1120px;
+          margin:0 auto;
+          gap:22px;
+          align-items:stretch;
+        }
         .price-card {
           position:relative;
-          padding: 32px;
-          border-radius: 20px;
-          background: #fff;
-          border: 1px solid var(--border);
+          isolation:isolate;
+          overflow:hidden;
+          min-height:100%;
+          padding: 30px;
+          border-radius: 22px;
+          background:
+            linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.9)),
+            linear-gradient(135deg, rgba(255,106,22,.08), transparent 42%);
+          border: 1px solid rgba(15,23,42,.08);
           display:flex; flex-direction:column;
-          transition: transform .3s, box-shadow .3s;
+          box-shadow:0 24px 70px rgba(15,23,42,.08), inset 0 1px 0 rgba(255,255,255,.92);
+          transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
         }
-        .price-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+        .price-card > * {
+          position:relative;
+          z-index:1;
+        }
+        .price-card::before {
+          content:"";
+          position:absolute;
+          inset:0 0 auto;
+          height:4px;
+          background:linear-gradient(90deg, rgba(255,106,22,.16), rgba(255,79,56,.34), rgba(255,106,22,.08));
+          z-index:0;
+        }
+        .price-card::after {
+          content:"";
+          position:absolute;
+          inset:4px 0 auto;
+          height:120px;
+          background:linear-gradient(180deg, rgba(255,106,22,.05), transparent);
+          pointer-events:none;
+          z-index:0;
+        }
+        .price-card:hover { transform:translateY(-5px); box-shadow:0 30px 82px rgba(15,23,42,.13); border-color:rgba(255,106,22,.2); }
         .price-card.featured {
-          background: var(--accent);
-          border-color: transparent;
-          box-shadow: 0 16px 48px rgba(255,106,22,.3);
-          color:#fff;
+          background:
+            linear-gradient(180deg, rgba(255,255,255,1), rgba(255,248,244,.96)),
+            linear-gradient(135deg, rgba(255,106,22,.12), transparent 48%);
+          border-color:rgba(255,106,22,.38);
+          box-shadow: 0 30px 90px rgba(255,106,22,.16), 0 16px 46px rgba(15,23,42,.08), inset 0 1px 0 rgba(255,255,255,.94);
+          color:var(--text-1);
+          transform:translateY(-8px);
         }
-        .price-card.featured:hover { box-shadow: 0 20px 60px rgba(255,106,22,.4); }
-        .price-tag { font-size:.75rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
-        .price-val { font-size:2.5rem; font-weight:800; letter-spacing:0; margin-top:16px; line-height:1; }
-        .price-sub { font-size:.875rem; margin-top:4px; }
-        .price-sep { height:1px; margin:20px 0; }
-        .price-feat { display:flex; align-items:center; gap:10px; font-size:.875rem; }
+        .price-card.featured::before {
+          height:5px;
+          background:linear-gradient(90deg, rgba(255,106,22,.32), rgba(255,79,56,.42), rgba(255,106,22,.22));
+        }
+        .price-card.featured:hover { transform:translateY(-11px); box-shadow: 0 36px 96px rgba(255,106,22,.2), 0 18px 50px rgba(15,23,42,.09), inset 0 1px 0 rgba(255,255,255,.94); }
+        .price-head {
+          display:flex;
+          align-items:flex-start;
+          justify-content:space-between;
+          gap:16px;
+          min-height:76px;
+        }
+        .price-badge {
+          min-height:28px;
+          display:inline-flex;
+          align-items:center;
+          flex:0 0 auto;
+          padding:0 12px;
+          border-radius:9999px;
+          background:#fff;
+          border:1px solid rgba(255,106,22,.26);
+          box-shadow:0 10px 28px rgba(255,106,22,.13);
+          color:var(--accent);
+          font-size:.64rem;
+          font-weight:850;
+          letter-spacing:.08em;
+          text-transform:uppercase;
+          white-space:nowrap;
+        }
+        .price-tag { font-size:.72rem; font-weight:850; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); }
+        .price-best { margin-top:9px; color:var(--text-3); font-size:.82rem; line-height:1.45; max-width:250px; }
+        .price-val { font-size:3.05rem; font-weight:850; letter-spacing:0; margin-top:18px; line-height:.95; color:var(--text-1); }
+        .price-sub { font-size:.86rem; margin-top:6px; color:var(--text-3); }
+        .price-desc { margin-top:16px; font-size:.9rem; line-height:1.62; color:var(--text-2); }
+        .price-sep { height:1px; margin:22px 0 18px; background:linear-gradient(90deg, rgba(15,23,42,.09), rgba(15,23,42,.03), transparent); }
+        .price-feat { display:flex; align-items:flex-start; gap:10px; font-size:.86rem; line-height:1.45; color:var(--text-2); }
         .price-check {
-          width:18px; height:18px; border-radius:9999px;
+          width:20px; height:20px; border-radius:9999px;
           display:grid; place-items:center; flex-shrink:0;
+          margin-top:1px;
+          background:#fff3eb;
+          border:1px solid rgba(255,106,22,.12);
+          color:var(--accent);
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.82);
+          transition:background .22s ease, border-color .22s ease, color .22s ease, box-shadow .22s ease;
         }
+        .price-check svg { width:10px; height:10px; }
+        .price-card.featured .price-check { background:#fff1e8; border-color:rgba(255,106,22,.18); color:var(--accent); }
+        .price-card:hover .price-check {
+          background:var(--accent);
+          border-color:var(--accent);
+          color:#fff;
+          box-shadow:0 8px 18px rgba(255,106,22,.22), inset 0 1px 0 rgba(255,255,255,.26);
+        }
+        .price-list { display:flex; flex-direction:column; gap:10px; flex:1; }
         .price-cta {
           display:flex; align-items:center; justify-content:center;
-          height:44px; border-radius:12px;
-          font-size:.875rem; font-weight:600;
-          margin-top:24px; transition: background .2s, transform .15s;
+          height:48px; border-radius:14px;
+          font-size:.88rem; font-weight:800;
+          margin-top:24px;
+          background:linear-gradient(180deg, #fff, #f8f6f3);
+          border:1px solid rgba(15,23,42,.1);
+          color:var(--text-1);
+          transition: background .2s, transform .15s, border-color .2s, box-shadow .2s;
         }
-        .price-cta:hover { transform:translateY(-1px); }
+        .price-cta:hover { transform:translateY(-1px); border-color:rgba(255,106,22,.24); box-shadow:0 14px 30px rgba(15,23,42,.1); }
+        .price-card:hover .price-cta {
+          background:linear-gradient(135deg, #ff6a16, #ff4f38);
+          border-color:var(--accent);
+          color:#fff;
+          box-shadow:0 16px 34px rgba(255,106,22,.24), inset 0 1px 0 rgba(255,255,255,.26);
+        }
+        .price-card.featured .price-cta {
+          background:linear-gradient(180deg, #fff, #fff6f0);
+          border-color:rgba(255,106,22,.34);
+          color:var(--accent);
+          box-shadow:0 16px 34px rgba(255,106,22,.14), inset 0 1px 0 rgba(255,255,255,.82);
+        }
+        .price-card.featured:hover .price-cta {
+          background:linear-gradient(135deg, #ff6a16, #ff4f38);
+          border-color:var(--accent);
+          color:#fff;
+          box-shadow:0 16px 34px rgba(255,106,22,.24), inset 0 1px 0 rgba(255,255,255,.26);
+        }
+        @media(max-width:640px){
+          .pricing-note { align-items:flex-start; text-align:left; font-size:.82rem; }
+          .pricing-grid { gap:18px; }
+          .price-card { padding:26px 22px; border-radius:20px; }
+          .price-card.featured,
+          .price-card.featured:hover { transform:none; }
+          .price-head { min-height:auto; }
+          .price-badge { min-height:26px; padding:0 10px; font-size:.6rem; }
+          .price-best { min-height:auto; }
+          .price-val { font-size:2.5rem; }
+        }
 
         /* ── cta band ── */
         .cta-band {
@@ -383,7 +526,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-p">
-              Indian website builder for small businesses. Choose a template, customize it, preview live, and launch your website within 48 hours.
+              LaunchyFire Web Studio helps small businesses choose their website style, customize it, preview live, and launch within 48 hours.
             </p>
 
             <div className="hero-actions">
@@ -421,7 +564,7 @@ export default function Home() {
               </div>
               <div className="hero-browser-img">
                 <div className="hero-template-main">
-                  <img src={featured[0].image} alt={`${featured[0].name} - premium business website template`} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={featured[0].image} alt={`${featured[0].name} - premium business website design`} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                   <div className="hero-template-label">
                     {featured[0].name}
                     <span>Premium business website</span>
@@ -446,14 +589,14 @@ export default function Home() {
         {/* ── divider ── */}
         <div className="divider" style={{ maxWidth: 1200, margin: "0 auto" }} />
 
-        {/* ═══ FEATURED TEMPLATES ═══ */}
+        {/* ═══ FEATURED WEBSITES ═══ */}
         <section className="sec" id="templates">
           <div className="sec-head-split">
             <div>
-              <p className="section-tag" style={{ marginBottom: 8 }}>Templates</p>
+              <p className="section-tag" style={{ marginBottom: 8 }}>Websites</p>
               <h2 className="sec-title">Start with a ready design</h2>
               <p className="sec-desc">
-                Preview a few popular business website templates, then choose one to customize for your brand.
+                Preview a few popular business websites, then pick one to customize for your brand.
               </p>
             </div>
             <Link href="/templates" className="view-link focus-ring">
@@ -477,19 +620,26 @@ export default function Home() {
             <p className="sec-desc" style={{ margin: "12px auto 0" }}>
               One-time payment. No subscriptions. No hidden fees.
             </p>
+            <div className="pricing-note">
+              <Icon name="sparkles" />
+              <span>All plans include mobile-ready design, WhatsApp CTA, live preview, 1-year included web address, SSL, and 1 week post-publish content issue support.</span>
+            </div>
           </div>
-          <div className="grid-3" style={{ maxWidth: 900, margin: "0 auto" }}>
-            <PriceCard title="Preview" price={pricing.preview}
-              desc="See your template live before you buy."
-              features={["Live preview", "Category filters", "Font & colour pick", "WhatsApp support"]}
+          <div className="grid-3 pricing-grid">
+            <PriceCard title="Starter" price={pricing.starter}
+              bestFor="Best for a simple business website launch."
+              desc="A clean starter website using a classic design, ready for essential business enquiries."
+              features={["Classic website design", "Basic customization", "Up to 4 core sections", "Mobile-ready design", "WhatsApp/contact button", "Live preview before launch", "1-year included web address + SSL", "1 week content issue support"]}
             />
-            <PriceCard title="Website" price={pricing.basic} featured
-              desc="Your business website, ready to launch."
-              features={["Everything in Preview", "Content setup", "Mobile-first", "48hr delivery", "1 revision"]}
+            <PriceCard title="Business" price={pricing.business} featured badge="Most popular"
+              bestFor="Best for most local businesses and service brands."
+              desc="A polished SPA-style business website with product catalog, WhatsApp order flow, and extra pages for key business details."
+              features={["SPA-style website setup", "Standard customization", "Up to 6 homepage sections", "Up to 20 product catalog items", "WhatsApp order button support", "3 extra pages based on requirement", "Basic SEO setup", "1-year included web address + SSL", "1 week content issue support"]}
             />
-            <PriceCard title="Premium" price={pricing.pro}
-              desc="Extra polish, priority delivery."
-              features={["Everything in Website", "Extra sections", "Animations", "Priority delivery", "3 revisions"]}
+            <PriceCard title="Pro" price={pricing.pro}
+              bestFor="Best for brands that need a custom domain and long support."
+              desc="A premium SPA-style website package with a larger product catalog, custom page planning, priority delivery, and extended guidance."
+              features={["Advanced SPA-style website setup", "Advanced customization", "Up to 8 homepage sections", "Up to 50 product catalog items", "WhatsApp order button support", "4 different custom pages based on requirement", "Priority delivery", "Custom domain connection support", "1-year included web address + SSL", "3 months Sunday 1-hour support"]}
             />
           </div>
         </section>
@@ -502,12 +652,14 @@ export default function Home() {
           </div>
           <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16 }}>
             {[
-              { q: "What is Web Launchy Fire?", a: "Web Launchy Fire is an Indian website builder platform that helps small businesses launch professional, mobile-ready websites within 48 hours. Choose a template, customize it, and go live." },
-              { q: "How much does a website cost?", a: "Web Launchy Fire offers affordable one-time pricing with no monthly subscriptions. Plans start from preview (free) to premium packages. Check our pricing section for details." },
-              { q: "Do I need coding knowledge?", a: "No coding is needed. Web Launchy Fire handles all the design, customization, and launch. You just pick a template, share your business details, and we build it for you." },
+              { q: "What is Web Launchy Fire?", a: "Web Launchy Fire is a web studio that helps small businesses launch professional, mobile-ready websites within 48 hours. Choose a website style, customize it, preview live, and go live." },
+              { q: "How much does a website cost?", a: "Web Launchy Fire has three one-time website plans: Starter ₹2,999, Business ₹4,999, and Pro ₹9,999. There are no monthly subscriptions or hidden fees." },
+              { q: "Do I need coding knowledge?", a: "No coding is needed. Web Launchy Fire handles all the design, customization, and launch. You just pick a website, share your business details, and we build it for you." },
               { q: "How fast can my website go live?", a: "Your website can go live within 48 hours after you share your business details and content via WhatsApp." },
-              { q: "Can I customize the website design?", a: "Yes! You can preview templates live, change colors, fonts, and layouts before finalizing. Web Launchy Fire offers full customization for every business type." },
-              { q: "Do you build websites for businesses in Kolkata and Malda?", a: "Yes, Web Launchy Fire serves businesses across India including Kolkata, Malda, and all other cities. We offer affordable website design services for local businesses." },
+              { q: "Can I customize the website design?", a: "Yes! You can preview websites live, change colors, fonts, and layouts before finalizing. Web Launchy Fire offers full customization for every business type." },
+              { q: "Can I upgrade my plan later?", a: "Yes, you can easily upgrade later. If your business needs more pages, product catalog items, custom sections, or extra support, we can move you to a higher plan." },
+              { q: "Which locations do you serve?", a: "Web Launchy Fire works with businesses all over India, including West Bengal, Kolkata, Malda, Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Pune, Ahmedabad, Jaipur, and other cities." },
+              { q: "Can I resell Web Launchy Fire websites or products?", a: "Reselling is not allowed automatically. Please contact us first for permission, partner terms, and resale approval before offering Web Launchy Fire websites or products to your customers." },
             ].map(({ q, a }) => (
               <details key={q} style={{
                 padding: "20px 24px",
@@ -529,12 +681,14 @@ export default function Home() {
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(
                 makeFaqJsonLd([
-                  { question: "What is Web Launchy Fire?", answer: "Web Launchy Fire is an Indian website builder platform that helps small businesses launch professional, mobile-ready websites within 48 hours. Choose a template, customize it, and go live." },
-                  { question: "How much does a website cost?", answer: "Web Launchy Fire offers affordable one-time pricing with no monthly subscriptions. Plans start from preview (free) to premium packages. Check our pricing section for details." },
-                  { question: "Do I need coding knowledge?", answer: "No coding is needed. Web Launchy Fire handles all the design, customization, and launch. You just pick a template, share your business details, and we build it for you." },
+                  { question: "What is Web Launchy Fire?", answer: "Web Launchy Fire is a web studio that helps small businesses launch professional, mobile-ready websites within 48 hours. Choose a website style, customize it, preview live, and go live." },
+                  { question: "How much does a website cost?", answer: "Web Launchy Fire has three one-time website plans: Starter ₹2,999, Business ₹4,999, and Pro ₹9,999. There are no monthly subscriptions or hidden fees." },
+                  { question: "Do I need coding knowledge?", answer: "No coding is needed. Web Launchy Fire handles all the design, customization, and launch. You just pick a website, share your business details, and we build it for you." },
                   { question: "How fast can my website go live?", answer: "Your website can go live within 48 hours after you share your business details and content via WhatsApp." },
-                  { question: "Can I customize the website design?", answer: "Yes! You can preview templates live, change colors, fonts, and layouts before finalizing. Web Launchy Fire offers full customization for every business type." },
-                  { question: "Do you build websites for businesses in Kolkata and Malda?", answer: "Yes, Web Launchy Fire serves businesses across India including Kolkata, Malda, and all other cities. We offer affordable website design services for local businesses." },
+                  { question: "Can I customize the website design?", answer: "Yes! You can preview websites live, change colors, fonts, and layouts before finalizing. Web Launchy Fire offers full customization for every business type." },
+                  { question: "Can I upgrade my plan later?", answer: "Yes, you can easily upgrade later. If your business needs more pages, product catalog items, custom sections, or extra support, we can move you to a higher plan." },
+                  { question: "Which locations do you serve?", answer: "Web Launchy Fire works with businesses all over India, including West Bengal, Kolkata, Malda, Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Pune, Ahmedabad, Jaipur, and other cities." },
+                  { question: "Can I resell Web Launchy Fire websites or products?", answer: "Reselling is not allowed automatically. Please contact us first for permission, partner terms, and resale approval before offering Web Launchy Fire websites or products to your customers." },
                 ])
               ),
             }}
@@ -550,12 +704,12 @@ export default function Home() {
                 Ready to launch?
               </h2>
               <p style={{ fontSize: "1rem", color: "rgba(255,255,255,.75)", lineHeight: 1.7, maxWidth: 400, margin: "0 auto 32px" }}>
-                Browse templates, preview live, and get your website online in 48 hours.
+                Pick a website, preview live, and get your website online in 48 hours.
               </p>
               <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <Link href="/templates" className="btn focus-ring"
                   style={{ height: 48, padding: "0 28px", background: "#fff", color: "var(--accent)", fontWeight: 700 }}>
-                  Browse Templates
+                  Pick a Website
                 </Link>
                 <Link href="/contact" className="btn focus-ring"
                   style={{ height: 48, padding: "0 28px", background: "rgba(255,255,255,.15)", border: "1px solid rgba(255,255,255,.25)", color: "#fff" }}>
@@ -573,40 +727,31 @@ export default function Home() {
 }
 
 /* ── Price Card ── */
-function PriceCard({ title, price, desc, features = [], featured = false }) {
-  const f = featured;
+function PriceCard({ title, price, bestFor, desc, features = [], featured = false, badge = "" }) {
   return (
-    <article className={`price-card ${f ? "featured" : ""}`}>
-      {f && (
-        <span style={{
-          position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)",
-          padding: "5px 14px", borderRadius: 9999,
-          background: "rgba(255,255,255,.2)", border: "1px solid rgba(255,255,255,.3)",
-          fontSize: ".7rem", fontWeight: 600, letterSpacing: ".05em", textTransform: "uppercase", color: "#fff", whiteSpace: "nowrap",
-        }}>
-          Most popular
-        </span>
-      )}
-      <div className="price-tag" style={{ color: f ? "rgba(255,255,255,.7)" : "var(--accent)" }}>{title}</div>
-      <div className="price-val" style={{ color: f ? "#fff" : "var(--text-1)" }}>{price}</div>
-      <div className="price-sub" style={{ color: f ? "rgba(255,255,255,.6)" : "var(--text-3)" }}>one-time payment</div>
-      <p style={{ marginTop: 16, fontSize: ".875rem", lineHeight: 1.65, color: f ? "rgba(255,255,255,.7)" : "var(--text-2)" }}>{desc}</p>
-      <div className="price-sep" style={{ background: f ? "rgba(255,255,255,.15)" : "var(--border)" }} />
-      <ul style={{ display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
+    <article className={`price-card ${featured ? "featured" : ""}`}>
+      <div className="price-head">
+        <div>
+          <div className="price-tag">{title}</div>
+          <p className="price-best">{bestFor}</p>
+        </div>
+        {badge && <span className="price-badge">{badge}</span>}
+      </div>
+      <div className="price-val">{price}</div>
+      <div className="price-sub">one-time payment</div>
+      <p className="price-desc">{desc}</p>
+      <div className="price-sep" />
+      <ul className="price-list">
         {features.map(ft => (
-          <li key={ft} className="price-feat" style={{ color: f ? "rgba(255,255,255,.85)" : "var(--text-2)" }}>
-            <span className="price-check" style={{ background: f ? "rgba(255,255,255,.2)" : "var(--accent-subtle)" }}>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={f ? "#fff" : "var(--accent)"} strokeWidth="2.5"><path d="M20 6 9 17l-5-5" /></svg>
+          <li key={ft} className="price-feat">
+            <span className="price-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6 9 17l-5-5" /></svg>
             </span>
             {ft}
           </li>
         ))}
       </ul>
-      <Link href="/contact" className={`focus-ring price-cta`}
-        style={f
-          ? { background: "rgba(255,255,255,.18)", border: "1px solid rgba(255,255,255,.3)", color: "#fff" }
-          : { background: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-1)" }
-        }>
+      <Link href="/contact" className="focus-ring price-cta">
         Get started
       </Link>
     </article>

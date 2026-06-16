@@ -7,7 +7,7 @@ import { Icon } from "@/components/Icons";
 
 const NAV = [
   { href: "/",          label: "Home",      icon: "home" },
-  { href: "/templates", label: "Templates", icon: "layout" },
+  { href: "/templates", label: "Websites", icon: "layout" },
   { href: "/#price",    label: "Pricing",   icon: "tag" },
   { href: "/contact",   label: "Contact",   icon: "phone" },
 ];
@@ -67,11 +67,9 @@ export default function Header() {
           padding: 6px 12px 6px 6px;
           border-radius: 14px;
           text-decoration: none;
-          transition: background .2s, box-shadow .2s, transform .18s;
+          transition: transform .18s;
         }
         .hdr-logo:hover {
-          background: rgba(255,106,22,.05);
-          box-shadow: 0 4px 20px rgba(255,106,22,.08);
           transform: translateY(-1px);
         }
         .hdr-logo-img {
@@ -97,10 +95,10 @@ export default function Header() {
           color: var(--text-3);
         }
         .hdr-logo-name {
-          font-family: var(--font-brand), 'Paytone One', system-ui, sans-serif;
-          font-size: 1.24rem;
-          font-weight: 400;
-          letter-spacing: -.02em;
+          font-family: var(--font-logo), 'Baloo 2', system-ui, sans-serif;
+          font-size: 1.36rem;
+          font-weight: 800;
+          letter-spacing: -.035em;
           color: var(--text-1);
         }
         .hdr-logo-fire {
@@ -234,7 +232,7 @@ export default function Header() {
           <div className="hdr-right">
             <Link href="/templates" className="hdr-cta focus-ring">
               <Icon name="search" />
-              Find Template
+              Pick Website
             </Link>
             <button
               type="button"
@@ -289,7 +287,7 @@ export default function Header() {
             className="btn btn-primary focus-ring"
             style={{ width: "100%", height: 48 }}>
             <Icon name="search" className="h-4 w-4" />
-            Find Template
+            Pick Website
           </Link>
         </div>
       </div>

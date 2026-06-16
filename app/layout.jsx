@@ -1,4 +1,4 @@
-import { Inter, Paytone_One } from "next/font/google";
+import { Baloo_2, Inter, Paytone_One } from "next/font/google";
 import "./globals.css";
 import {
   defaultDescription,
@@ -22,6 +22,13 @@ const paytoneOne = Paytone_One({
   weight: "400",
   display: "swap",
   variable: "--font-brand",
+});
+
+const balooTwo = Baloo_2({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["700", "800"],
+  variable: "--font-logo",
 });
 
 export const viewport = {
@@ -50,7 +57,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${inter.variable} ${paytoneOne.variable}`}>
+      <body className={`${inter.className} ${inter.variable} ${paytoneOne.variable} ${balooTwo.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

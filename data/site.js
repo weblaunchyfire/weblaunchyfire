@@ -1,6 +1,6 @@
 export const pricing = {
-  preview: "₹99",
-  basic: "₹4,999",
+  starter: "₹2,999",
+  business: "₹4,999",
   pro: "₹9,999",
 };
 

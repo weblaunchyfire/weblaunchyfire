@@ -70,7 +70,7 @@ export default function Footer() {
                 </span>
               </div>
               <p className="ft-desc">
-                Premium website templates for local businesses. Pick, preview, go live.
+                Premium ready websites for local businesses. Pick a website, preview, go live.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ export default function Footer() {
             <div>
               <p className="ft-col-title">Product</p>
               {[
-                { href: "/templates", label: "Templates" },
+                { href: "/templates", label: "Websites" },
                 { href: "/#price", label: "Pricing" },
                 { href: "/contact", label: "Contact" },
               ].map(({ href, label }) => (
