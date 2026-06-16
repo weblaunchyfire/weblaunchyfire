@@ -2,6 +2,7 @@ import Link from "next/link";
 import EasyStart from "@/components/EasyStart";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import HeroVideoBadge from "@/components/HeroVideoBadge";
 import TemplateCard from "@/components/TemplateCard";
 import { Icon } from "@/components/Icons";
 import { pricing, templates } from "@/data/site";
@@ -47,10 +48,10 @@ export default function Home() {
           position:relative;
           isolation:isolate;
           width:100%;
-          max-width:76rem;
+          max-width:78rem;
           margin:0 auto;
-          min-height:calc(100dvh - 78px);
-          padding:52px 24px 44px;
+          min-height:calc(100dvh - 84px);
+          padding:58px 24px 50px;
           display:grid;
           place-items:center;
           text-align:center;
@@ -68,10 +69,10 @@ export default function Home() {
         }
         @media(min-width:1024px){
           .hero {
-            padding:56px 44px 48px;
+            padding:66px 44px 56px;
           }
         }
-        .hero-copy { width:100%; max-width:1240px; margin:0 auto; }
+        .hero-copy { width:100%; max-width:1260px; margin:0 auto; }
         .hero .badge {
           background:rgba(255,255,255,.72);
           border:1px solid rgba(21,21,21,.1);
@@ -84,23 +85,23 @@ export default function Home() {
 
         .hero-h1 {
           font-family: Georgia, "Times New Roman", serif;
-          font-size: 3.05rem;
+          font-size: 3.24rem;
           font-weight: 900;
           line-height: .96;
           letter-spacing: 0;
           color: var(--text-1);
         }
-        @media(min-width:768px){ .hero-h1 { font-size: 4.8rem; } }
-        @media(min-width:1180px){ .hero-h1 { font-size: 6.15rem; } }
+        @media(min-width:768px){ .hero-h1 { font-size: 5.15rem; } }
+        @media(min-width:1180px){ .hero-h1 { font-size: 6.6rem; } }
         .hero-p {
-          margin: 20px auto 0;
-          font-size: 1.08rem;
+          margin: 22px auto 0;
+          font-size: 1.16rem;
           line-height: 1.65;
           color: var(--text-2);
-          max-width: 620px;
+          max-width: 660px;
         }
-        .hero-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:22px; }
-        .hero-actions .btn { min-width:190px; border-radius:10px; }
+        .hero-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:26px; }
+        .hero-actions .btn { min-width:204px; border-radius:10px; }
         .hero-actions .btn-primary {
           position:relative;
           overflow:hidden;
@@ -140,7 +141,17 @@ export default function Home() {
           box-shadow:inset 0 1px 0 rgba(255,255,255,.75);
           color:var(--text-2); font-size:.78rem; font-weight:600;
         }
-        .trust-dot { width:7px; height:7px; border-radius:9999px; background:var(--accent); box-shadow:0 0 0 4px var(--accent-subtle); }
+        .trust-icon {
+          width:18px;
+          height:18px;
+          display:grid;
+          place-items:center;
+          border-radius:9999px;
+          color:var(--accent);
+          background:var(--accent-subtle);
+          box-shadow:inset 0 0 0 1px rgba(255,106,22,.12);
+        }
+        .trust-icon svg { width:12px; height:12px; }
         @keyframes easyStartPulse {
           0%, 100% { box-shadow:0 16px 34px rgba(255,106,22,.28), 0 0 0 0 rgba(255,106,22,.24), inset 0 1px 0 rgba(255,255,255,.25); filter:saturate(1); }
           10% { box-shadow:0 18px 42px rgba(255,106,22,.46), 0 0 0 8px rgba(255,106,22,.14), inset 0 1px 0 rgba(255,255,255,.38); filter:saturate(1.14) brightness(1.05); }
@@ -176,8 +187,8 @@ export default function Home() {
           border:1px solid rgba(255,255,255,.72);
           backdrop-filter:blur(22px);
           box-shadow:0 34px 90px rgba(51,45,103,.18), inset 0 1px 0 rgba(255,255,255,.85);
-          max-width:640px;
-          width:min(52vw, 640px);
+          max-width:690px;
+          width:min(54vw, 690px);
           margin-left:auto;
         }
         .hero-browser-bar {
@@ -190,7 +201,7 @@ export default function Home() {
           width:8px; height:8px; border-radius:9999px;
         }
         .hero-browser-img {
-          width:100%; height:348px;
+          width:100%; height:376px;
           display:grid; gap:12px; padding:14px;
           grid-template-columns:minmax(0, 1.35fr) minmax(160px, .65fr);
           background:linear-gradient(135deg, rgba(255,255,255,.65), rgba(244,246,255,.56));
@@ -207,9 +218,9 @@ export default function Home() {
           content:""; position:absolute; inset:0;
           background:linear-gradient(180deg, transparent 35%, rgba(7,10,22,.72) 100%);
         }
-        .hero-template-main { min-height:320px; }
+        .hero-template-main { min-height:348px; }
         .hero-template-side { display:grid; gap:12px; }
-        .hero-template-mini { min-height:154px; }
+        .hero-template-mini { min-height:168px; }
         .hero-template-label {
           position:absolute; left:14px; right:14px; bottom:14px; z-index:1;
           color:#fff; font-weight:800; letter-spacing:-.02em;
@@ -220,11 +231,29 @@ export default function Home() {
           color:rgba(255,255,255,.68);
         }
         @media(max-width:640px){
-          .hero { margin:0 auto; min-height:calc(100dvh - 78px); padding:34px 18px 34px; }
-          .hero-h1 { font-size:3rem; line-height:.98; }
-          .hero-p { margin-top:16px; font-size:.98rem; }
-          .hero-actions { margin-top:20px; display:grid; grid-template-columns:1fr; }
-          .hero-actions .btn { width:100%; min-width:0; }
+          .hero { margin:0 auto; min-height:calc(100dvh - 78px); padding:30px 18px 34px; }
+          .hero-h1 { font-size:2.82rem; line-height:.99; }
+          .hero-p { margin-top:18px; font-size:.94rem; line-height:1.62; }
+          .hero-actions {
+            width:min(100%, 390px);
+            margin:22px auto 0;
+            display:grid;
+            grid-template-columns:1fr;
+            gap:12px;
+          }
+          .hero-actions .btn {
+            width:100%;
+            min-width:0;
+            height:54px;
+            border-radius:14px;
+            font-size:.95rem;
+          }
+          .hero-actions .btn-primary {
+            box-shadow:0 12px 26px rgba(255,106,22,.24), inset 0 1px 0 rgba(255,255,255,.25);
+          }
+          .hero-actions .btn-secondary {
+            box-shadow:inset 0 1px 0 rgba(255,255,255,.82), 0 8px 22px rgba(21,21,21,.06);
+          }
           .trust-row { margin-top:20px; }
           .trust-pill { min-height:34px; padding:7px 10px; font-size:.74rem; }
           .hero-visual { width:100%; margin-top:32px; }
@@ -344,7 +373,9 @@ export default function Home() {
         {/* ═══ HERO ═══ */}
         <section className="hero">
           <div className="anim-up hero-copy">
-            <div className="badge" style={{ marginBottom: 16 }}>New - 50+ templates</div>
+            <div style={{ marginBottom: 16 }}>
+              <HeroVideoBadge />
+            </div>
 
             <h1 className="hero-h1">
               <span className="hero-h1-main">Build Your Custom</span><br />
@@ -364,10 +395,17 @@ export default function Home() {
             </div>
 
             <div className="trust-row" aria-label="Web Launchy Fire benefits">
-              {["Mobile-first", "48-hour delivery", "WhatsApp support", "One-time pricing"].map(item => (
-                <span key={item} className="trust-pill">
-                  <span className="trust-dot" />
-                  {item}
+              {[
+                { label: "Mobile-first", icon: "smartphone" },
+                { label: "48-hour delivery", icon: "clock" },
+                { label: "WhatsApp support", icon: "phone" },
+                { label: "One-time pricing", icon: "tag" },
+              ].map(item => (
+                <span key={item.label} className="trust-pill">
+                  <span className="trust-icon" aria-hidden="true">
+                    <Icon name={item.icon} />
+                  </span>
+                  {item.label}
                 </span>
               ))}
             </div>
@@ -407,6 +445,29 @@ export default function Home() {
 
         {/* ── divider ── */}
         <div className="divider" style={{ maxWidth: 1200, margin: "0 auto" }} />
+
+        {/* ═══ FEATURED TEMPLATES ═══ */}
+        <section className="sec" id="templates">
+          <div className="sec-head-split">
+            <div>
+              <p className="section-tag" style={{ marginBottom: 8 }}>Templates</p>
+              <h2 className="sec-title">Start with a ready design</h2>
+              <p className="sec-desc">
+                Preview a few popular business website templates, then choose one to customize for your brand.
+              </p>
+            </div>
+            <Link href="/templates" className="view-link focus-ring">
+              View all
+              <Icon name="arrow" className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid-3">
+            {featured.map((template, index) => (
+              <TemplateCard key={template.id} template={template} recommended={index === 0} />
+            ))}
+          </div>
+        </section>
 
         {/* ═══ PRICING ═══ */}
         <section id="price" className="sec">

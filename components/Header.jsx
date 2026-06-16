@@ -56,9 +56,9 @@ export default function Header() {
         }
         .hdr.scrolled { box-shadow: 0 12px 36px rgba(21,21,21,.08); }
         .hdr-inner {
-          max-width: 80rem; margin: 0 auto;
+          max-width: 78rem; margin: 0 auto;
           display: flex; align-items: center; justify-content: space-between;
-          height: 78px; padding: 0 34px;
+          height: 84px; padding: 0 32px;
         }
 
         /* ── Logo ── */
@@ -75,7 +75,7 @@ export default function Header() {
           transform: translateY(-1px);
         }
         .hdr-logo-img {
-          width: 44px; height: 44px;
+          width: 48px; height: 48px;
           object-fit: contain;
           filter: drop-shadow(0 4px 12px rgba(255,106,22,.18));
           transition: filter .25s, transform .25s;
@@ -90,7 +90,7 @@ export default function Header() {
         }
         .hdr-logo-top {
           font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
-          font-size: .65rem;
+          font-size: .72rem;
           font-weight: 600;
           letter-spacing: .1em;
           text-transform: uppercase;
@@ -98,7 +98,7 @@ export default function Header() {
         }
         .hdr-logo-name {
           font-family: var(--font-brand), 'Paytone One', system-ui, sans-serif;
-          font-size: 1.18rem;
+          font-size: 1.24rem;
           font-weight: 400;
           letter-spacing: -.02em;
           color: var(--text-1);
@@ -114,8 +114,8 @@ export default function Header() {
         .hdr-nav {
           display: none;
           align-items: center;
-          gap: 6px;
-          padding: 6px;
+          gap: 7px;
+          padding: 7px;
           border-radius: 9999px;
           background: rgba(255,255,255,.56);
           border: 1px solid rgba(15,23,42,.06);
@@ -123,10 +123,10 @@ export default function Header() {
         }
         @media(min-width:768px){ .hdr-nav { display: flex; } }
         .hdr-link {
-          min-height: 38px;
-          padding: 0 13px;
+          min-height: 42px;
+          padding: 0 15px;
           border-radius: 9999px;
-          font-size: .855rem;
+          font-size: .9rem;
           font-weight: 760;
           color: var(--text-2);
           display: inline-flex;
@@ -135,7 +135,7 @@ export default function Header() {
           transition: color .18s, background .18s, box-shadow .18s, transform .18s;
         }
         .hdr-link svg {
-          width: 16px; height: 16px;
+          width: 17px; height: 17px;
           color: var(--text-3);
           transition: color .18s, transform .18s;
         }
@@ -154,9 +154,9 @@ export default function Header() {
         .hdr-link.on svg { color: var(--accent); }
         .hdr-right { display: flex; align-items: center; gap: 12px; }
         .hdr-cta {
-          height: 46px; padding: 0 22px; border-radius: 15px;
+          height: 50px; padding: 0 24px; border-radius: 15px;
           background: var(--accent); color: #fff;
-          font-size: .84rem; font-weight: 850;
+          font-size: .9rem; font-weight: 850;
           border: 1px solid rgba(255,255,255,.28); cursor: pointer;
           box-shadow: 0 14px 28px rgba(255,106,22,.24), inset 0 1px 0 rgba(255,255,255,.24);
           transition: background .2s, transform .15s, box-shadow .2s;
@@ -167,7 +167,7 @@ export default function Header() {
           transform: translateY(-2px);
           box-shadow: 0 18px 34px rgba(255,106,22,.3), inset 0 1px 0 rgba(255,255,255,.24);
         }
-        .hdr-cta svg { width: 16px; height: 16px; }
+        .hdr-cta svg { width: 17px; height: 17px; }
         @media(min-width:640px){ .hdr-cta { display: inline-flex; align-items: center; gap: 6px; } }
 
         /* hamburger */
