@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-const HELP_VIDEO_ID = "qvQzW3oQByQ";
+const HELP_VIDEO_ID = "";
 const HELP_VIDEO_EMBED_URL = `https://www.youtube-nocookie.com/embed/${HELP_VIDEO_ID}?autoplay=1&controls=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&fs=0&disablekb=1`;
 
 export default function HeroVideoBadge() {

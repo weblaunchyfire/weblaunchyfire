@@ -906,7 +906,7 @@ function LaunchContent() {
             grid-template-columns: 1fr 1fr;
             gap: 16px 14px;
           }
-          .col-span-2 {
+          .form-col-span-2 {
             grid-column: span 2;
           }
         }
@@ -1374,7 +1374,7 @@ function LaunchContent() {
                     />
                   </div>
 
-                  <div className="form-group col-span-2">
+                  <div className="form-group form-col-span-2">
                     <label className="input-label" htmlFor="addr">Address</label>
                     <input
                       id="addr"
@@ -1386,7 +1386,7 @@ function LaunchContent() {
                     />
                   </div>
 
-                  <div className="form-group col-span-2">
+                  <div className="form-group form-col-span-2">
                     <label className="input-label" htmlFor="serv">Services / About Your Business</label>
                     <textarea
                       id="serv"

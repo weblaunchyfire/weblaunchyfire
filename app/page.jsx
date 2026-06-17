@@ -1,16 +1,17 @@
 import Link from "next/link";
 import EasyStart from "@/components/EasyStart";
+import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroVideoBadge from "@/components/HeroVideoBadge";
+import PricingSection from "@/components/PricingSection";
 import TemplateCard from "@/components/TemplateCard";
 import { Icon } from "@/components/Icons";
-import { pricing, templates } from "@/data/site";
+import { templates } from "@/data/site";
 import {
   builderKeywords,
   commerceKeywords,
   locationKeywords,
-  makeFaqJsonLd,
   makeSeoMetadata,
   platformAlternativeKeywords,
   pricingKeywords,
@@ -613,87 +614,10 @@ export default function Home() {
         </section>
 
         {/* ═══ PRICING ═══ */}
-        <section id="price" className="sec">
-          <div className="sec-head" style={{ textAlign: "center" }}>
-            <p className="section-tag" style={{ marginBottom: 8 }}>Pricing</p>
-            <h2 className="sec-title">Simple, transparent pricing</h2>
-            <p className="sec-desc" style={{ margin: "12px auto 0" }}>
-              One-time payment. No subscriptions. No hidden fees.
-            </p>
-            <div className="pricing-note">
-              <Icon name="sparkles" />
-              <span>All plans include mobile-ready design, WhatsApp CTA, live preview, 1-year included web address, SSL, and 1 week post-publish content issue support.</span>
-            </div>
-          </div>
-          <div className="grid-3 pricing-grid">
-            <PriceCard title="Starter" price={pricing.starter}
-              bestFor="Best for a simple business website launch."
-              desc="A clean starter website using a classic design, ready for essential business enquiries."
-              features={["Classic website design", "Basic customization", "Up to 4 core sections", "Mobile-ready design", "WhatsApp/contact button", "Live preview before launch", "1-year included web address + SSL", "1 week content issue support"]}
-            />
-            <PriceCard title="Business" price={pricing.business} featured badge="Most popular"
-              bestFor="Best for most local businesses and service brands."
-              desc="A polished SPA-style business website with product catalog, WhatsApp order flow, and extra pages for key business details."
-              features={["SPA-style website setup", "Standard customization", "Up to 6 homepage sections", "Up to 20 product catalog items", "WhatsApp order button support", "3 extra pages based on requirement", "Basic SEO setup", "1-year included web address + SSL", "1 week content issue support"]}
-            />
-            <PriceCard title="Pro" price={pricing.pro}
-              bestFor="Best for brands that need a custom domain and long support."
-              desc="A premium SPA-style website package with a larger product catalog, custom page planning, priority delivery, and extended guidance."
-              features={["Advanced SPA-style website setup", "Advanced customization", "Up to 8 homepage sections", "Up to 50 product catalog items", "WhatsApp order button support", "4 different custom pages based on requirement", "Priority delivery", "Custom domain connection support", "1-year included web address + SSL", "3 months Sunday 1-hour support"]}
-            />
-          </div>
-        </section>
+        <PricingSection />
 
         {/* ═══ FAQ ═══ */}
-        <section className="sec">
-          <div className="sec-head" style={{ textAlign: "center" }}>
-            <p className="section-tag" style={{ marginBottom: 8 }}>FAQ</p>
-            <h2 className="sec-title">Frequently asked questions</h2>
-          </div>
-          <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16 }}>
-            {[
-              { q: "What is Web Launchy Fire?", a: "Web Launchy Fire is a web studio that helps small businesses launch professional, mobile-ready websites within 48 hours. Choose a website style, customize it, preview live, and go live." },
-              { q: "How much does a website cost?", a: "Web Launchy Fire has three one-time website plans: Starter ₹2,999, Business ₹4,999, and Pro ₹9,999. There are no monthly subscriptions or hidden fees." },
-              { q: "Do I need coding knowledge?", a: "No coding is needed. Web Launchy Fire handles all the design, customization, and launch. You just pick a website, share your business details, and we build it for you." },
-              { q: "How fast can my website go live?", a: "Your website can go live within 48 hours after you share your business details and content via WhatsApp." },
-              { q: "Can I customize the website design?", a: "Yes! You can preview websites live, change colors, fonts, and layouts before finalizing. Web Launchy Fire offers full customization for every business type." },
-              { q: "Can I upgrade my plan later?", a: "Yes, you can easily upgrade later. If your business needs more pages, product catalog items, custom sections, or extra support, we can move you to a higher plan." },
-              { q: "Which locations do you serve?", a: "Web Launchy Fire works with businesses all over India, including West Bengal, Kolkata, Malda, Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Pune, Ahmedabad, Jaipur, and other cities." },
-              { q: "Can I resell Web Launchy Fire websites or products?", a: "Reselling is not allowed automatically. Please contact us first for permission, partner terms, and resale approval before offering Web Launchy Fire websites or products to your customers." },
-            ].map(({ q, a }) => (
-              <details key={q} style={{
-                padding: "20px 24px",
-                borderRadius: 14,
-                background: "var(--surface)",
-                border: "1px solid var(--border)",
-                cursor: "pointer",
-              }}>
-                <summary style={{ fontWeight: 600, fontSize: "1rem", color: "var(--text-1)", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  {q}
-                  <span style={{ fontSize: "1.25rem", color: "var(--text-3)", marginLeft: 16 }}>+</span>
-                </summary>
-                <p style={{ marginTop: 12, fontSize: ".9375rem", lineHeight: 1.7, color: "var(--text-2)" }}>{a}</p>
-              </details>
-            ))}
-          </div>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(
-                makeFaqJsonLd([
-                  { question: "What is Web Launchy Fire?", answer: "Web Launchy Fire is a web studio that helps small businesses launch professional, mobile-ready websites within 48 hours. Choose a website style, customize it, preview live, and go live." },
-                  { question: "How much does a website cost?", answer: "Web Launchy Fire has three one-time website plans: Starter ₹2,999, Business ₹4,999, and Pro ₹9,999. There are no monthly subscriptions or hidden fees." },
-                  { question: "Do I need coding knowledge?", answer: "No coding is needed. Web Launchy Fire handles all the design, customization, and launch. You just pick a website, share your business details, and we build it for you." },
-                  { question: "How fast can my website go live?", answer: "Your website can go live within 48 hours after you share your business details and content via WhatsApp." },
-                  { question: "Can I customize the website design?", answer: "Yes! You can preview websites live, change colors, fonts, and layouts before finalizing. Web Launchy Fire offers full customization for every business type." },
-                  { question: "Can I upgrade my plan later?", answer: "Yes, you can easily upgrade later. If your business needs more pages, product catalog items, custom sections, or extra support, we can move you to a higher plan." },
-                  { question: "Which locations do you serve?", answer: "Web Launchy Fire works with businesses all over India, including West Bengal, Kolkata, Malda, Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Pune, Ahmedabad, Jaipur, and other cities." },
-                  { question: "Can I resell Web Launchy Fire websites or products?", answer: "Reselling is not allowed automatically. Please contact us first for permission, partner terms, and resale approval before offering Web Launchy Fire websites or products to your customers." },
-                ])
-              ),
-            }}
-          />
-        </section>
+        <FaqSection />
 
         {/* ═══ BOTTOM CTA ═══ */}
         <section style={{ padding: "0 24px" }}>
@@ -726,34 +650,3 @@ export default function Home() {
   );
 }
 
-/* ── Price Card ── */
-function PriceCard({ title, price, bestFor, desc, features = [], featured = false, badge = "" }) {
-  return (
-    <article className={`price-card ${featured ? "featured" : ""}`}>
-      <div className="price-head">
-        <div>
-          <div className="price-tag">{title}</div>
-          <p className="price-best">{bestFor}</p>
-        </div>
-        {badge && <span className="price-badge">{badge}</span>}
-      </div>
-      <div className="price-val">{price}</div>
-      <div className="price-sub">one-time payment</div>
-      <p className="price-desc">{desc}</p>
-      <div className="price-sep" />
-      <ul className="price-list">
-        {features.map(ft => (
-          <li key={ft} className="price-feat">
-            <span className="price-check">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6 9 17l-5-5" /></svg>
-            </span>
-            {ft}
-          </li>
-        ))}
-      </ul>
-      <Link href="/contact" className="focus-ring price-cta">
-        Get started
-      </Link>
-    </article>
-  );
-}

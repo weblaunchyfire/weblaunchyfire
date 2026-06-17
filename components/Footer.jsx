@@ -79,7 +79,7 @@ export default function Footer() {
               <p className="ft-col-title">Product</p>
               {[
                 { href: "/templates", label: "Websites" },
-                { href: "/#price", label: "Pricing" },
+                { href: "/pricing", label: "Pricing" },
                 { href: "/contact", label: "Contact" },
               ].map(({ href, label }) => (
                 <Link key={href} href={href} className="ft-link focus-ring">{label}</Link>
